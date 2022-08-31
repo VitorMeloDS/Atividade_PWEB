@@ -1,0 +1,126 @@
+
+<form [formGroup]="form" (ngSubmit)="save()">
+  <h1>Formulário</h1>
+
+  <div class="container text-center">
+    <div class="row">
+      <div class="col">
+        <label position="floating">Nome Completo: </label>
+        <input type="text" placeholder="Nome" formControlName="nome"> <br> <br> <br>
+      </div>
+
+      <div class="col">
+        <label>Biografia: </label>
+        <textarea formControlName="bio"></textarea> <br> <br> <br>
+      </div>
+  
+  
+      <label>Planeta: </label>
+      <input type="text" formControlName="planeta"> <br> <br> <br>
+  
+      <label>Cupom: </label>
+      <input type="text" formControlName="cupom"> <br> <br> <br>
+  
+      <label>Imagem: </label>
+      <input type="file" formControlName="img"> <br> <br> <br>
+    </div>
+  </div>
+
+    <fieldset>
+        <legend>Gênero</legend>
+        <label>Masculino</label> 
+        <input type="radio"> <br> <br> <br>
+
+        <label>Feminino</label> 
+        <input type="radio"> 
+    </fieldset> <br> <br> <br>
+
+    <fieldset>
+        <legend>Hobbies</legend>
+        <label>Caminhar</label> 
+        <input type="checkbox"> <br> <br> <br>
+
+        <label>Dançar</label> 
+        <input type="checkbox"> <br> <br> <br>
+
+        <label>Jardinar</label> 
+        <input type="checkbox"> 
+    </fieldset> <br> <br> <br>
+
+    <label>Idade</label>
+    <select>
+        <option value="0">Selecione</option>
+        <option value="1">16</option>
+        <option value="2">17</option>
+        <option value="3">18</option>
+        <option value="4">19</option>
+        <option value="5">20</option>
+        <option value="6">21</option>
+        <option value="7">22</option>
+        <option value="8">23</option>
+        <option value="9">24</option>
+    </select> <br> <br> <br>
+    
+    <label>Idolos</label>
+    <select size="2">
+        <option value="1">Michael Jackson</option>
+        <option value="2">Ronaldinho Gaucho</option>
+    </select> <br> <br> <br>
+
+    <label>Interreses</label>
+    <select size="4">
+        <option value="0">Cinema</option>
+        <option value="1">Teatro</option>
+        <option value="2">Programador</option>
+        <option value="3">Lutador</option>
+        <option value="4">Futebol</option>
+        <option value="5">Opera</option>
+        <option value="6">Palestra</option>
+        <option value="7">Professor</option>
+    </select> <br> <br> <br>
+
+    <label>Carros Favoritos</label>
+    <select>
+        <option value="0">Volvo</option>
+        <option value="1">Honda</option>
+        <option value="2">Audi</option>
+        <option value="3">Fiat</option>
+        <option value="4">Ford</option>
+        <option value="5">Kia</option>
+        <option value="6">Nissan</option>
+        <option value="7">BMW</option>
+    </select> <br> <br> <br>
+
+    <label>Comida Favorita</label>
+    <select size="2">
+        <optgroup label="Vegetariano">
+          <option>Salada</option>
+        </optgroup>
+        <optgroup label="Carnivoro">
+          <option>Churrasco</option>
+        </optgroup>
+    </select> <br> <br> <br>
+
+    <label>Transporte publico</label>
+    <select size="4">
+        <optgroup label="Terrestri">
+          <option>Onibus</option>
+        </optgroup>
+        <optgroup label="Aerio">
+          <option disabled>none</option>
+        </optgroup>
+        <optgroup label="Aquatico">
+          <option disabled>none</option>
+        </optgroup>
+    </select> <br> <br> <br>
+
+    <input type="checkbox" id='teste' value="0" onclick="mudaValor()">
+    <label>Eu aceito os termos e condições</label> <br> <br>
+
+    <button [disabled]="!form.valid" type="submit">Enviar</button>
+    <button type="reset" onclick="limpaForm()">Limpar</button>
+
+</form>
+
+<router-outlet></router-outlet>
+
