@@ -110,6 +110,17 @@ export class AppComponent {
     },
   ]
 
+  public idolos: any = [
+    {
+      nome: 'Michael Jackson',
+      valor: 1
+    },
+    {
+      nome: 'Ronaldinho Gaucho',
+      valor: 2
+    }
+  ]
+
   public enableSelect: boolean = true;
 
   constructor(
@@ -129,22 +140,12 @@ export class AppComponent {
       img: [''],
       sexo: ['', Validators.required],
       hobbies: ['', Validators.required],
+      termos: ['', Validators.required]
     })
   }
 
-  ngAfterContentChecked() {
-    if (
-      this.form.controls['nome'] != undefined && this.form.controls['bio'] != undefined && this.form.controls['planeta'] != undefined &&
-      this.form.controls['sexo'] != undefined && this.form.controls['hobbies'] != undefined 
-      ) 
-    {
-      this.enableSelect = false
-    }
-    console.log(this.form.value)
-  }
-
   public save() {
-    console.log(this.form?.value)
+    alert(`Obrigadoo por responder o formulário ${this.form.controls['nome'].value}`)
   }
 
   public limparForm() {

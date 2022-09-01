@@ -1,4 +1,3 @@
-
 <form [formGroup]="form" (ngSubmit)="save()" class="container w-50">
   <div>
     <h1 class="text-center align-middle pt-5">Formulário</h1>
@@ -36,46 +35,52 @@
     </div>
   </div>
 
-  <div class="container my-5">
-    <fieldset>
-      <legend>Gênero</legend>
-      <div class="col-sm-10">
-        <div class="form-check">
-          <label class="form-check-label mx-2" for="gridRadios">Masculino</label>
-          <input formControlName="sexo" class="form-check-input mx-5" type="radio" name="gridRadios" id="gridRadios" value="Masculino" checked>
-        </div>
+  <div class="row">
+    <div class="col">
+      <div class="container my-3 px-5">
+        <fieldset>
+          <legend>Gênero</legend>
+          <div class="col-sm-10">
+            <div class="form-check mx-4">
+              <label class="form-check-label">Masculino</label>
+              <input formControlName="sexo" class="form-check-input" type="radio" value="Masculino" >
+            </div>
+          </div>
+    
+          <div class="col-sm-10 mt-2">
+            <div class="form-check mx-4">
+              <label class="form-check-label">Feminino</label>
+              <input formControlName="sexo" class="form-check-input" type="radio" value="Feminino" >
+            </div>
+          </div>
+        </fieldset>
       </div>
+    </div>
 
-      <div class="col-sm-10 mt-2">
-        <div class="form-check">
-          <label class="form-check-label mx-2" for="gridRadios">Feminino</label>
-          <input formControlName="sexo" class="form-check-input mx-5" type="radio" name="gridRadios" id="gridRadios" value="Feminino" checked>
-        </div>
+    <div class="col">
+      <div class="container my-3 px-5">
+        <fieldset>
+          <legend>Hobbies</legend>
+          <div class="form-check">
+            <label class="form-check-label mx-4">Caminhar</label>
+            <input formControlName="hobbies" class="form-check-input" type="radio" value="Caminhar">
+          </div>
+    
+          <div class="form-check">
+            <label class="form-check-label mx-4">Dançar</label>
+            <input formControlName="hobbies" class="form-check-input" type="radio" value="Dançar">
+          </div>
+    
+          <div class="form-check">
+            <label class="form-check-label mx-4">Jardinar</label>
+            <input formControlName="hobbies" class="form-check-input" type="radio" value="Jardinar">
+          </div>
+        </fieldset>
       </div>
-    </fieldset>
+    </div>
   </div>
-  
-  <div class="container my-5">
-    <fieldset>
-      <legend>Hobbies</legend>
-      <div class="form-check">
-        <label class="form-check-label mx-2" for="gridRadios1">Caminhar</label>
-        <input formControlName="hobbies" class="form-check-input mx-5" type="radio" name="gridRadios1" id="gridRadios1" value="Caminhar">
-      </div>
 
-      <div class="form-check">
-        <label class="form-check-label mx-2" for="gridRadios1">Dançar</label>
-        <input formControlName="hobbies" class="form-check-input mx-5" type="radio" name="gridRadios1" id="gridRadios1" value="Dançar">
-      </div>
-
-      <div class="form-check">
-        <label class="form-check-label mx-2" for="gridRadios1">Jardinar</label>
-        <input formControlName="hobbies" class="form-check-input mx-5" type="radio" name="gridRadios1" id="gridRadios1" value="Jardinar">
-      </div>
-    </fieldset>
-  </div>
-
-  <div *ngIf="!enableSelect" class="container">
+  <div class="container my-2">
     <div class="form-floating">
       <select class="form-select" aria-label="Floating label select example">
         <option selected>selecione</option>
@@ -85,28 +90,26 @@
     </div>
   </div>
 
-  <div *ngIf="!enableSelect" class="container mt-4">
+  <div class="container mt-4">
     <div class="form-floating">
       <select class="form-select" aria-label="Floating label select example">
         <option selected>selecione</option>
-        <option value="1">Michael Jackson</option>
-        <option value="2">Ronaldinho Gaucho</option>
+        <option [value]="i.valor" *ngFor="let i of idolos">{{i.nome}}</option>
       </select>
       <label>Idolos</label>
     </div>
   </div>
 
-  <div *ngIf="!enableSelect" class="container mt-4">
+  <div class="container mt-4">
     <div>
       <label class="mb-2">Interesses: </label>
       <select size="4" class="form-select" aria-label="Floating label select example">
-        <option selected>selecione</option>
         <option [value]="i.valor" *ngFor="let i of interesses">{{i.nome}}</option>
       </select>
     </div>
   </div>
 
-  <div *ngIf="!enableSelect" class="container mt-4">
+  <div class="container mt-4">
     <div class="form-floating">
       <select class="form-select" aria-label="Floating label select example">
         <option selected>selecione</option>
@@ -116,11 +119,10 @@
     </div>
   </div>
 
-  <div *ngIf="!enableSelect" class="container mt-4">
+  <div class="container mt-4">
     <div>
       <label class="mb-2">Comida Favorita: </label>
-      <select size="2" class="form-select" aria-label="Floating label select example">
-        <option selected>selecione</option>
+      <select size="3" class="form-select" aria-label="Floating label select example">
         <optgroup label="Vegetariano">
           <option>Salada</option>
         </optgroup>
@@ -131,36 +133,35 @@
     </div>
   </div>
 
-  <div *ngIf="!enableSelect" class="container mt-4">
+  <div class="container mt-4">
     <div>
       <label class="mb-2">Transporte publico: </label>
-      <select size="2" class="form-select" aria-label="Floating label select example">
-        <option selected>selecione</option>
-        <optgroup label="Terrestri">
-          <option>Onibus</option>
+      <select size="3" class="form-select" aria-label="Floating label select example">
+        <optgroup label="Terrestre">
+          <option>Ônibus</option>
+          <option>Trem</option>
         </optgroup>
         <optgroup label="Aerio">
-          <option disabled>none</option>
+          <option>Avião</option>
         </optgroup>
         <optgroup label="Aquatico">
-          <option disabled>none</option>
+          <option>Submarino</option>
         </optgroup>
       </select>
     </div>
   </div>
 
   <div class="container my-4">
-    <input type="checkbox" id='teste' value="0" onclick="mudaValor()">
-    <label>Eu aceito os termos e condições</label>
+    <input formControlName="termos" id='teste' type="checkbox">
+    <label class="px-2">Eu aceito os termos e condições</label>
   </div>
 
-  <div class="d-flex justify-content-center row gx-5">
-    <div class="my-4 px-4 mx-5 w-25">
-      <button [disabled]="!form.valid" type="submit">Enviar</button>
-      <button type="reset" onclick="limparForm()">Limpar</button>
+  <div class="d-flex justify-content-center gx-5">
+    <div class="py-4">
+      <button [disabled]="!form.valid" type="submit" class="px-3 py-1 mx-5">Enviar</button>
+      <button type="reset" onclick="limparForm()" class="px-3 py-1">Limpar</button>
     </div>
   </div>
 </form>
 
 <router-outlet></router-outlet>
-
